@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 
 export default function QuestionTimer({
     timeout,
-    onTimeout
+    onTimeout,
+    mode
 }) {
     const [remainingTime, setRemainingTime] = useState(timeout);
 
@@ -28,6 +29,7 @@ export default function QuestionTimer({
             id="question-time"
             max={timeout}
             value={remainingTime}
+            className={mode}
         />
     );
 };
