@@ -1,6 +1,10 @@
 import completeImg from '../assets/quiz-complete.png';
 
-export default function Summary() {
+import QUESTIONS from '../questions.js';
+
+export default function Summary({
+    userAnswers
+}) {
     return (
         <div id="summary">
             <img src={completeImg} alt="Trophy Image" />
@@ -19,6 +23,18 @@ export default function Summary() {
                     <span className='text'>answered incorrectly</span>
                 </p>
             </div>
+            <ol>
+                {userAnswers.map((answer, index) => {
+                    return (
+                        <li key={answer}>
+                            <h3>{index + 1}</h3>
+                            <p className='question'>{QUESTIONS[index].text}</p>
+                            <p className='user-answer'>{answer}</p>
+                        </li>
+                    )
+                })}
+
+            </ol>
         </div>
     );
 };

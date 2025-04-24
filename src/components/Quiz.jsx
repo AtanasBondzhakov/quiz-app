@@ -22,7 +22,7 @@ export default function Quiz() {
 
     if (quizIsComplete) {
         return (
-            <Summary />
+            <Summary userAnswers={userAnswers} />
         );
     }
 
